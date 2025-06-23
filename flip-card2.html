@@ -66,12 +66,12 @@
     }
 
     .flip-card-front {
-      background: linear-gradient(145deg, #6441a5, #7b3dd8); /* Цвет Twitch */
+      background: linear-gradient(145deg, #6441a5, #7b3dd8); /* Twitch purple */
       color: white;
     }
 
     .flip-card-back {
-      background: linear-gradient(145deg, #27A5E5, #1976D2); /* Цвет Telegram */
+      background: linear-gradient(145deg, #27A5E5, #1976D2); /* Telegram blue */
       color: white;
       transform: rotateY(180deg);
     }
@@ -98,8 +98,12 @@
 </div>
 
 <script>
-  const SHOW_DURATION = 60000; // 60 секунд = 30 + 1 + 30
-  const PAUSE_DURATION = 120000; // 2 минуты = 120 000 мс
+  // ВРЕМЯ НАСТРОЕК
+  const SHOW_DURATION = 60000; // 60 секунд (по 30 на сторону)
+  const PAUSE_2_MINUTES = 120000; // 2 минуты
+  const PAUSE_15_MINUTES = 900000; // 15 минут
+
+  let intervalDuration = PAUSE_2_MINUTES; // По умолчанию каждые 2 минуты
 
   function showCard() {
     const alertBox = document.getElementById("alertBox");
@@ -138,7 +142,10 @@
   // Каждые 2 минуты
   setInterval(() => {
     showCard();
-  }, PAUSE_DURATION);
+  }, intervalDuration);
+
+  // 💡 Чтобы переключиться на 15 минут — замени выше на: PAUSE_15_MINUTES
+
 </script>
 
 </body>
